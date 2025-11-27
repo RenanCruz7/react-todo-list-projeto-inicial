@@ -10,6 +10,7 @@ import { IconPlus, IconSchool } from "./components/icons"
 import { SubHeading } from "./components/SubHeading"
 import { ToDoItem } from "./components/ToDoItem"
 import { ToDoList } from "./components/ToDoList"
+import { TextInput } from "./components/TextInput"
 
 const todos = [
   {
@@ -84,7 +85,9 @@ function App() {
           </ToDoList>
           <Footer>
             <Dialog isOpen={showDialog} onClose={toggleDialog}>
-              <p>This modal dialog has a groovy backdrop!</p>
+              <form>
+                <TextInput placeholder="Descrição da tarefa" />
+              </form>
             </Dialog>
             <FabButton onClick={toggleDialog}>
               <IconPlus />
