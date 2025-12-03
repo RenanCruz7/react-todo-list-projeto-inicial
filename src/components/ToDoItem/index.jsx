@@ -1,7 +1,7 @@
 import './todo-item.style.css'
 import { IconPencil, IconTrash } from "../icons";
 
-export function ToDoItem ({ item, onToggleCompleted }) {
+export function ToDoItem ({ item, onToggleCompleted, onDelete , onEdit}) {
     const styles = ['todo-item']
 
     if (item.completed) {
@@ -24,10 +24,10 @@ export function ToDoItem ({ item, onToggleCompleted }) {
                     {item.description}
                 </p>
                 <div className="actions">
-                    <button className="btn">
+                    <button className="btn" onClick={() => onDelete(item)}>
                         <IconTrash />
                     </button>
-                    <button className="btn">
+                    <button className="btn" onClick={() => onEdit(item, )}>
                         <IconPencil />
                     </button>
                 </div>

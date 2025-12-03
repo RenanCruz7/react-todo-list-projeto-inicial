@@ -103,6 +103,28 @@ function App() {
     })
   }
 
+  const deleteTodo = (todo) => {
+    setTodos(prevState => {
+      // criar uma nova lista sem o todo removido
+      return prevState.filter(t => t.id !== todo.id)
+    })
+  }
+
+  const editTodo = (todo, newDescription) => {
+    setTodos(prevState => {
+      return prevState.map(t => {
+        if(t.id === todo.id){
+          return {
+            ...t,
+            description: newDescription
+          }
+        }
+        return t
+      })
+    })
+  }
+
+
   return (
     <main>
       <Container>
@@ -115,13 +137,13 @@ function App() {
           <SubHeading>Para estudar</SubHeading>
           <ToDoList>
             {todos.filter(t => !t.completed).map(function (t) {
-              return <ToDoItem key={t.id} item={t} onToggleCompleted={toggleTodoCompleted} />
+              return <ToDoItem key={t.id} item={t} onToggleCompleted={toggleTodoCompleted} onDelete={deleteTodo} onEdit={editTodo} />
             })}
           </ToDoList>
           <SubHeading>Concluído</SubHeading>
           <ToDoList>
             {todos.filter(t => t.completed).map(function (t) {
-              return <ToDoItem key={t.id} item={t} onToggleCompleted={toggleTodoCompleted}   />
+              return <ToDoItem key={t.id} item={t} onToggleCompleted={toggleTodoCompleted} onDelete={deleteTodo} onEdit={editTodo} />
             })}
           </ToDoList>
           <Footer>
