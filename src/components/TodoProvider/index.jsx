@@ -5,9 +5,25 @@ import { useEffect } from "react";
 const TODOS = "todos";
 
 function TodoProvider({ children }) {
+  const [showDialog, setShowDialog] = useState(false);
+
   const savedTodo = localStorage.getItem(TODOS);
 
   const [todos, setTodos] = useState(savedTodo ? JSON.parse(savedTodo) : []);
+
+  const [selectedTodo, setSelectedTodo] = useState(null);
+
+  const openFormTodoDialog = (todo) => {
+    if (todo) {
+      setSelectedTodo(todo);
+    }
+    setShowDialog(true);
+  };
+
+  const closeFormTodoDialog = () => {
+    setShowDialog(false);
+    setSelectedTodo(null);
+  };
 
   useEffect(() => {
     localStorage.setItem(TODOS, JSON.stringify(todos));
@@ -54,6 +70,10 @@ function TodoProvider({ children }) {
         addTodo,
         toggleTodoCompleted,
         deleteTodo,
+        showDialog,
+        openFormTodoDialog,
+        closeFormTodoDialog,
+        selectedTodo,
       }}
     >
       {children}
