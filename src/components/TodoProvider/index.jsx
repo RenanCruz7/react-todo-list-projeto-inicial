@@ -63,6 +63,20 @@ function TodoProvider({ children }) {
     });
   };
 
+  const editTodo = (formData) => {
+    setTodos((prevState) => {
+      return prevState.map((t) => {
+        if (t.id === selectedTodo.id) {
+          return {
+            ...t,
+            description: formData.get("description"),
+          };
+        }
+        return t;
+      });
+    });
+  };
+
   return (
     <TodoContext
       value={{
@@ -74,6 +88,7 @@ function TodoProvider({ children }) {
         openFormTodoDialog,
         closeFormTodoDialog,
         selectedTodo,
+        editTodo
       }}
     >
       {children}
