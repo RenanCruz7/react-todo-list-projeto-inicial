@@ -12,47 +12,6 @@ import { ToDoForm } from "./components/ToDoForm"
 import TodoContext from "./components/TodoProvider/TodoContext"
 import { use } from "react"
 
-// const todos = [
-//   {
-//     id: 1,
-//     description: "JSX e componentes",
-//     completed: false,
-//     createdAt: "2022-10-31"
-//   },
-//   {
-//     id: 2,
-//     description: "Props, state e hooks",
-//     completed: false,
-//     createdAt: "2022-10-31"
-//   },
-//   {
-//     id: 3,
-//     description: "Ciclo de vida dos componentes",
-//     completed: false,
-//     createdAt: "2022-10-31"
-//   },
-//   {
-//     id: 4,
-//     description: "Testes unitários com Jest",
-//     completed: false,
-//     createdAt: "2022-10-31"
-//   }
-// ]
-// const completed = [
-//   {
-//     id: 5,
-//     description: "Controle de inputs e formulários controlados",
-//     completed: true,
-//     createdAt: "2022-10-31"
-//   },
-//   {
-//     id: 6,
-//     description: "Rotas dinâmicas",
-//     completed: true,
-//     createdAt: "2022-10-31"
-//   }
-// ]
-
 function App() {
 
   const [showDialog, setShowDialog] = useState(false)
