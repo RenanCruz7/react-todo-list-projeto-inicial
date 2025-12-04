@@ -10,6 +10,7 @@ import { TodoGroup } from "./components/TodoGroup"
 import { ToDoForm } from "./components/ToDoForm"
 import TodoContext from "./components/TodoProvider/TodoContext"
 import { use } from "react"
+import { EmptyState } from "./components/EmptyState"
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
             heading = "Para estudar"
             items = {todos.filter(t => !t.completed)}
           />
+          {todos.length == 0 && <EmptyState />}
           <TodoGroup 
             heading = "Concluído"   
             items = {todos.filter(t => t.completed)}
